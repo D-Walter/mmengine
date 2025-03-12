@@ -980,7 +980,7 @@ class ClearMLVisBackend(BaseVisBackend):
 
     def close(self) -> None:
         """Close the clearml."""
-        if not hasattr(self, '_clearml'):
+        if (not hasattr(self, '_clearml')) or (not hasattr(self, "_task")):
             return
 
         file_paths: List[str] = list()
